@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://cosmodestiny.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://cosmodestiny.com/principles/</loc><priority>0.9</priority></url>
-  <url><loc>https://cosmodestiny.com/philosophy/</loc><priority>0.9</priority></url>
-  <url><loc>https://cosmodestiny.com/mantra/</loc><priority>0.9</priority></url>
-  <url><loc>https://cosmodestiny.com/manifesto/</loc><priority>0.9</priority></url>
-  <url><loc>https://cosmodestiny.com/faq/</loc><priority>0.8</priority></url>
+  <url><loc>https://cosmodestiny.com/philosophy.html</loc><priority>0.9</priority></url>
+  <url><loc>https://cosmodestiny.com/principles.html</loc><priority>0.9</priority></url>
+  <url><loc>https://cosmodestiny.com/manifesto.html</loc><priority>0.9</priority></url>
+  <url><loc>https://cosmodestiny.com/mantra.html</loc><priority>0.9</priority></url>
+  <url><loc>https://cosmodestiny.com/attunings.html</loc><priority>0.9</priority></url>
+  <url><loc>https://cosmodestiny.com/faq.html</loc><priority>0.8</priority></url>
 </urlset>
