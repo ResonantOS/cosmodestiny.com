@@ -547,9 +547,80 @@ details[open] .faq-toggle-icon { transform: rotate(45deg); }
 }
 
 /* ── Responsive ── */
+@media (max-width: 768px) {
+  /* Header: stack logo + hamburger button */
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    position: relative;
+  }
+  .header-brand { padding-bottom: 12px; }
+
+  /* Hamburger button */
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    color: var(--contrast);
+  }
+  .menu-toggle svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+
+  /* Nav drawer: hidden by default, slides down */
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: var(--base);
+    border-top: 1px solid var(--accent-6);
+    padding: 12px 0;
+    width: 100%;
+  }
+  .site-nav.is-open { display: flex; }
+  .site-nav li { border-bottom: 1px solid var(--accent-6); }
+  .site-nav li:last-child { border-bottom: none; }
+  .site-nav a {
+    display: block;
+    padding: 14px var(--s-40);
+    font-size: 1rem;
+    text-transform: none;
+    letter-spacing: .02em;
+  }
+
+  /* Content: prevent overflow */
+  .page-content,
+  .home-content,
+  .home-hero-inner {
+    padding: 0 var(--s-30);
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Prose constrain + overflow-wrap for tables */
+  .page-content { max-width: 100%; }
+  .comparison-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { min-width: 500px; font-size: 0.8rem; }
+
+  /* Philosophy dark block: stay full width */
+  .philo-dark { padding: var(--s-40) var(--s-30); }
+  .philo-dark-inner { padding: 0; max-width: 100%; overflow-x: hidden; }
+  .philo-dark h2 { font-size: clamp(1.75rem, 6vw, 2.5rem); overflow-wrap: break-word; }
+
+  blockquote { padding: var(--s-20) var(--s-30); }
+  .attuning, .challenge-block { padding: var(--s-30); }
+  .site-main { padding: var(--s-50) 0; }
+  .site-footer { padding: var(--s-40) var(--s-30); }
+}
+
 @media (max-width: 640px) {
   .header-inner { flex-direction: column; align-items: flex-start; gap: var(--s-20); }
-  .site-nav { gap: var(--s-30); }
   blockquote { padding: var(--s-20) var(--s-30); }
   .attuning, .challenge-block { padding: var(--s-30); }
 }
