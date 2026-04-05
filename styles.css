@@ -1,5 +1,4 @@
 /* Cosmodestiny — Static HTML Mirror
-   Cloned from cosmodestiny.com (WordPress Twenty Twenty-Five theme)
    Design: minimal, warm, generous whitespace
 */
 
@@ -20,14 +19,14 @@
   --font-manrope: 'Manrope', sans-serif;
   --font-code:    'Fira Code', monospace;
 
-  /* Spacing tokens (fluid) */
+  /* Fluid spacing */
   --s-30: clamp(14px, 3vw, 30px);
   --s-40: clamp(20px, 4vw, 40px);
   --s-50: clamp(20px, 5vw, 50px);
   --s-60: clamp(30px, 7vw, 70px);
   --s-70: clamp(40px, 8vw, 90px);
 
-  /* Font sizes (fluid) */
+  /* Fluid font sizes */
   --fs-sm:  0.875rem;
   --fs-md:  clamp(1rem, 1rem + 0.2vw, 1.125rem);
   --fs-lg:  clamp(1.125rem, 1.125rem + 0.4vw, 1.375rem);
@@ -36,7 +35,7 @@
   --fs-3xl: clamp(2.5rem, 2.5rem + 2vw, 4rem);
 
   /* Layout */
-  --max-w:    1200px;
+  --max-w:     1200px;
   --max-prose: 645px;
 }
 
@@ -53,7 +52,7 @@ body {
   font-size: var(--fs-lg);
   font-weight: 300;
   letter-spacing: -0.01em;
-  line-height: 1.65;
+  line-height: 1.55;  /* tighter — Manolo feedback */
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   display: flex;
@@ -96,7 +95,7 @@ a:hover { text-decoration-color: var(--accent-4); }
 }
 
 /* ═══════════════════════════════════════
-   HEADER
+   HEADER — logo + tagline + nav in one row
 ═══════════════════════════════════════ */
 .site-header {
   background-color: var(--base);
@@ -112,14 +111,23 @@ a:hover { text-decoration-color: var(--accent-4); }
   margin: 0 auto;
   padding: 0 var(--s-40);
   display: flex;
+  align-items: flex-end; /* nav aligns with bottom of logo block */
+  justify-content: space-between;
+  gap: var(--s-40);
+}
+
+/* Logo block: title + tagline stacked tight */
+.header-logo-block {
+  display: flex;
   flex-direction: column;
-  gap: var(--s-30);
+  gap: 2px; /* very tight — tagline close to logo */
+  line-height: 1;
 }
 
 .site-title {
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  letter-spacing: .12em;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--contrast);
 }
@@ -132,7 +140,7 @@ a:hover { text-decoration-color: var(--accent-4); }
   font-size: var(--fs-sm);
   color: var(--accent-4);
   font-style: italic;
-  margin-top: 4px;
+  line-height: 1.2;
 }
 
 /* ── Navigation ── */
@@ -142,14 +150,15 @@ a:hover { text-decoration-color: var(--accent-4); }
   gap: var(--s-40);
   list-style: none;
   padding: 0;
+  align-self: flex-end; /* align with tagline baseline */
 }
 
 .site-nav a {
   font-size: var(--fs-sm);
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
   color: var(--accent-4);
-  letter-spacing: .05em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   padding: 2px 0;
   border-bottom: 1px solid transparent;
@@ -174,8 +183,24 @@ a:hover { text-decoration-color: var(--accent-4); }
 .home-hero-inner {
   max-width: var(--max-prose);
   margin: 0 auto;
-  text-align: center;
 }
+
+/* Hero blockquote — small, italic, quote-style */
+.hero-quote {
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--base);
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+.hero-quote p {
+  margin-bottom: .2em;
+  font-style: italic;
+}
+.hero-quote p:last-child { margin-bottom: 0; }
 
 /* Section 2: Tertiary about */
 .home-about {
@@ -194,26 +219,10 @@ a:hover { text-decoration-color: var(--accent-4); }
   margin: 0 auto;
 }
 
-.home-content p { margin-bottom: 1em; }
+.home-content p { margin-bottom: .8em; }
 .home-content p:last-child { margin-bottom: 0; }
 .home-content blockquote { margin-top: 1.5em; }
 
-/* ── Hero blockquote ── */
-.home-hero blockquote {
-  border: none;
-  padding: 0;
-  text-align: center;
-  font-size: var(--fs-3xl);
-  font-weight: 200;
-  color: var(--base);
-  line-height: 1.3;
-  letter-spacing: -.02em;
-}
-.home-hero blockquote p { margin-bottom: .3em; }
-.home-hero blockquote em { font-style: italic; }
-.home-hero blockquote strong { font-weight: 800; }
-
-/* ── Text helpers ── */
 .text-center { text-align: center; }
 
 /* ═══════════════════════════════════════
@@ -265,7 +274,7 @@ h2:first-child,
 h3:first-child { margin-top: 0; }
 
 /* ── Paragraphs ── */
-p { margin-bottom: 1.2em; }
+p { margin-bottom: 1.1em; }
 
 /* ── Blockquotes ── */
 blockquote {
@@ -489,6 +498,7 @@ details[open] .faq-toggle-icon { transform: rotate(45deg); }
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: var(--s-20); }
   .site-nav { gap: var(--s-30); }
   blockquote { padding: var(--s-20) var(--s-30); }
   .attuning, .challenge-block { padding: var(--s-30); }
